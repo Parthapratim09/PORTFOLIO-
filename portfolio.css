@@ -485,7 +485,7 @@ height: 100px;
     /* background-color: #0ef; */
     border: 2px solid var(--second-bg-color);
     box-shadow: 2px 2px 12px var(--second-bg-color);
-    background-image: url(contact.jpg);
+    background-image: url(photo/contact.jpg);
     background-size: cover;
     padding:40px;
 }
