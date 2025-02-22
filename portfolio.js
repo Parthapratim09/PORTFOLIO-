@@ -27,7 +27,7 @@ window.onscroll=()=>{
 }
 cv.addEventListener('click',()=>{
     // console.log("button was clicked");
-    alert("Something went wrong Try Again");
+    window.open('https://drive.google.com/file/d/13wqjPbTpU5KPcJ4pvP6iJ5CiTvQBveO9/view?usp=sharing', '_blank');
 })
 
 
@@ -47,4 +47,38 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navbar.classList.remove('active');
     });
+});
+
+
+
+
+
+
+
+
+// Initialize EmailJS with your User ID
+emailjs.init('DYgE0Qf1sCF2HopNF'); // Replace with your EmailJS User ID
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get form data
+    const formData = {
+        name: document.getElementById('name').value,
+        phoneNo: document.getElementById('phno').value,
+        email: document.getElementById('e-mail').value,
+        message: document.getElementById('message').value
+    };
+
+    // Send email using EmailJS
+    emailjs.send('service_o9k44tu', 'template_wm0m2x3', formData) // Replace with your Service ID and Template ID
+        .then(function(response) {
+            console.log('Email sent successfully!', response);
+            // document.getElementById('responseMessage').textContent = 'Message sent successfully!';
+            document.getElementById('contactForm').reset(); // Clear the form
+        }, function(error) {
+            console.error('Failed to send email:', error);
+            alert("Error in sending")
+            // document.getElementById('responseMessage').textContent = 'Failed to send message. Please try again.';
+        });
 });
